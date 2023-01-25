@@ -6,12 +6,12 @@
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>IQ Tool</title>
-	<link rel="icon" type="image/png" href="images/favicon.png">
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
-	<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
-	<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/custom.js"></script>
+	<link rel="icon" type="image/png" href="https://zeq.netlify.app/images/favicon.png">
+	<link href="https://zeq.netlify.app/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+	<link href="https://zeq.netlify.app/css/animate.css" rel="stylesheet" type="text/css" media="all">
+	<link href="https://zeq.netlify.app/css/style.css" rel="stylesheet" type="text/css" media="all">
+	<script type="text/javascript" src="https://zeq.netlify.app/js/jquery.js"></script>
+	<script type="text/javascript" src="https://zeq.netlify.app/js/custom.js"></script>
 
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
@@ -90,67 +90,15 @@
 							<div class="links-wrap">
 								<button type="button" class="btn-prev" data-step="2">
 									< &nbsp;&nbsp;previous</button>
-										<button type="button" class="btn-next" data-step="2">Next</button>
+										<button type="button" class="btn-next" id="btn_calculate" data-step="2">Next</button>
 							</div>
 						</div>
 						<div class="step step-3" style="display: none;">
-							<h2 class="step-head">Who Are You? Tell Us Your Name!</h2>
-							<div class="input-wrap">
-								<input type="text" placeholder="Eg. Billy Bob Joey Doodle" class="form-control name">
-								<span class="required small">required</span>
-							</div>
-							<p class="text">Our tool is doing math for you. At least introduce yourself!</p>
-							<div class="links-wrap">
-								<button type="button" class="btn-prev" data-step="3">
-									< &nbsp;&nbsp;previous</button>
-										<button type="button" class="btn-next" data-step="3">Next</button>
-							</div>
-						</div>
-						<div class="step step-4" style="display: none;">
-							<h2 class="step-head">Last questions, we promise.</h2>
-							<p class="text">
-								<input type="text" style="display:none" class="form-control check" value="check">
-							<div class="form-check checkbox-custom">
-								<input type="checkbox" class="form-check-input paying">
-								<label class="form-check-label" for="paying">Are you currently paying for SEO?</label>
-							</div>
-							<div class="form-check checkbox-custom">
-								<input type="checkbox" class="form-check-input partner">
-								<label class="form-check-label" for="partner">Are you open to a free SEO audit from our
-									partners?</label>
-							</div>
-							</p>
-							<p class="text">Ready to go!</p>
-							<div class="links-wrap">
-								<button type="button" class="btn-prev" data-step="4">
-									< &nbsp;&nbsp;previous</button>
-										<button type="button" class="btn-next" data-step="4">Next</button>
-							</div>
-						</div>
-						<div class="step step-5" style="display: none;">
-							<h2 class="step-head">Almost There.. Whats Your Info</h2>
-							<div class="input-wrap">
-								<input type="text" placeholder="Eg. Jimmy@gmail.com" class="form-control email">
-								<span class="required small">required</span>
-							</div>
-							<div class="input-wrap">
-								<input type="text" placeholder="Eg. 305 867 5309" class="form-control phone">
-								<span class="required small">required</span>
-							</div>
-							<p class="text">Our calculator is going to send you your breakdown!</p>
-							<div class="links-wrap">
-								<button type="button" class="btn-prev" data-step="5">
-									< &nbsp;&nbsp;previous</button>
-										<button type="button" class="btn-next" id="btn_calculate" data-step="5">Next</button>
-							</div>
-						</div>
-						<div class="step step-6" style="display: none;">
-							<h2 class="step-head">Your instant quote is: <span id="amt"><span></h2>
-							<p class="text">We will be in touch for a free analysis video of your website showing how Google sees your
-								site and its content, authority, hacker vulnerability, on site optimization, and much more.</p>
+							<h2 class="step-head"><span id="amt"><span></h2>
+							<p class="text">We will be back to you with a formal quote.</p>
 							<div class="links-wrap">
 								<!--<button type="button" class="btn-prev" data-step="6">< &nbsp;&nbsp;previous</button>-->
-								<button type="button" class="new-project" data-step="6">New Quote</button>
+								<button type="button" class="new-project btn-next" data-step="3">New Quote</button>
 							</div>
 						</div>
 					</form>
@@ -167,14 +115,14 @@
 							<span class="circle">3</span>
 							<span class="text">step</span>
 						</li>
-						<li data-step="4">
+						<!-- <li data-step="4">
 							<span class="circle">4</span>
 							<span class="text">step</span>
 						</li>
 						<li data-step="5">
 							<span class="circle">5</span>
 							<span class="text">step</span>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -183,10 +131,10 @@
 			<div class="container">
 				<div class="row">
 					<ul class="logo-list">
-						<li><img src="images/logo1.png" alt="logo1"></li>
-						<li><img src="images/logo3.png" alt="logo2"></li>
-						<li><img src="images/logo4.png" alt="logo3"></li>
-						<li><img src="images/logo2.png" alt="logo4"></li>
+						<li><img src="https://zeq.netlify.app/images/logo1.png" alt="logo1"></li>
+						<li><img src="https://zeq.netlify.app/images/logo3.png" alt="logo2"></li>
+						<li><img src="https://zeq.netlify.app/images/logo4.png" alt="logo3"></li>
+						<li><img src="https://zeq.netlify.app/images/logo2.png" alt="logo4"></li>
 					</ul>
 				</div>
 			</div>
@@ -196,7 +144,7 @@
 
 </html>
 <script>
-	var endpoint = 'https://107.150.34.226/';
+	var endpoint = 'http://api.zeq.io/';
 	$(".btn-next").on("click", async function (e) {
 
 		e.preventDefault();
@@ -233,16 +181,77 @@
 				});
 				if (current_step === 2) {
 					if (validateUrl(input_entry)) {
-						$(this).closest(".step-" + current_step).removeClass("active");
-						$(this).closest(".step-" + current_step).hide();
-						$(".step-" + next_step).removeClass("fadeInRight animated active").addClass("fadeInRight animated active").show();
-						$(".step-" + next_step).find("input[type=text]").focus();
+						$("#btn_calculate").attr('disabled', true);
+						$("#btn_calculate").html('Calculating ...');
+						var search_volume, domain_age, domain_rating, instant_quote;
+
+						const doAjax = (data) => {
+
+							return new Promise(function (resolve, reject) {
+								$.ajax(data)
+									.then((res) => resolve(res))
+									.fail((error) => reject(error))
+							});
+						}
+
+						doAjax({
+							type: 'GET',
+							contentType: "application/json",
+							url: endpoint + "getsearchvolume?keyword=" + keyword,
+						})
+							.then(res => {
+								search_volume = res;
+								doAjax({
+									type: 'GET',
+									contentType: "application/json",
+									url: endpoint + "getdomainage?domain=" + domain,
+								})
+									.then(res => {
+										domain_age = res;
+										doAjax({
+											type: 'GET',
+											contentType: "application/json",
+											url: endpoint + "getdomainrating?domain=" + domain,
+										})
+											.then(res => {
+												domain_rating = res;
+
+												doAjax({
+													type: 'GET',
+													contentType: "application/json",
+													url: endpoint + "getinstantquote?search_volume=" + search_volume + "&domain_age=" + domain_age + "&domain_rating=" + domain_rating,
+												})
+													.then(res => {
+														instant_quote = res;
+														console.log("instant_quote:", instant_quote)
+
+														$("#btn_calculate").removeAttr('disabled');
+														$("#btn_calculate").html('Next');
+
+														$(this).closest(".step-" + current_step).removeClass("active");
+														$(this).closest(".step-" + current_step).hide();
+														$(".step-" + next_step).removeClass("fadeInRight animated active").addClass("fadeInRight animated active").show();
+
+														if (Number(instant_quote) < 1000) {
+															$(".step-3").addClass('bg-green');
+															$("#amt").append('<br><span> Yes, You qualify.</span></span>');
+														}
+														else {
+															// $(".step-3").addClass('bg-red');
+															$("#amt").append('<br><span> You may need to work with an agency.</span></span>');
+														}
+
+
+													})
+											})
+									})
+							})
 					} else {
 						$(this).closest(".step").find(".required").text("invalid URL").show();
 						$(this).closest(".step").find("input[type=text]").addClass("error");
 						$(this).closest(".step").find("input[type=text]").focus();
 					}
-				} else if (current_step === 5) {
+				} else if (current_step === 3) {
 					if (validateEmail(input_entry) && validatePhone(phone)) {
 						$("#btn_calculate").attr('disabled', true);
 						$("#btn_calculate").html('Calculating ...');
@@ -295,11 +304,14 @@
 														$(this).closest(".step-" + current_step).hide();
 														$(".step-" + next_step).removeClass("fadeInRight animated active").addClass("fadeInRight animated active").show();
 
-														$("#amt").append('<br><span>' +
-															name +
-															':</span><span class="amount"> $<span class="amount-inner">' +
-															instant_quote +
-															'</span></span> Per month.');
+														if (Number(instant_quote) < 1000) {
+															$("#amt").append('<br><span> Yes, You qualify.</span></span>');
+														}
+														else {
+															$("#amt").append('<br><span> You may need to work with an agency.</span></span>');
+														}
+
+
 													})
 											})
 									})
