@@ -12,6 +12,7 @@
 	<link href="https://zeq.netlify.app/css/style.css" rel="stylesheet" type="text/css" media="all">
 	<script type="text/javascript" src="https://zeq.netlify.app/js/jquery.js"></script>
 	<script type="text/javascript" src="https://zeq.netlify.app/js/custom.js"></script>
+	<!-- <script type="text/javascript" src="http://127.0.0.1/instaquoteseo/js/custom.js"></script> -->
 
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
@@ -144,7 +145,8 @@
 
 </html>
 <script>
-	var endpoint = 'http://api.zeq.io/';
+	var endpoint = 'http://127.0.0.1:8000/';
+	// var endpoint = 'http://127.0.0.1:8000/';
 	$(".btn-next").on("click", async function (e) {
 
 		e.preventDefault();
@@ -183,7 +185,7 @@
 					if (validateUrl(input_entry)) {
 						$("#btn_calculate").attr('disabled', true);
 						$("#btn_calculate").html('Calculating ...');
-						var search_volume, domain_age, domain_rating, instant_quote;
+						var search_volume, domain_age, domain_rating, instant_quote, competition;
 
 						const doAjax = (data) => {
 
@@ -200,13 +202,15 @@
 							url: endpoint + "getsearchvolume?keyword=" + keyword,
 						})
 							.then(res => {
-								search_volume = res;
+								search_volume = res.search_volume;
+								competition = res.competition;
 								doAjax({
 									type: 'GET',
 									contentType: "application/json",
 									url: endpoint + "getdomainage?domain=" + domain,
 								})
 									.then(res => {
+
 										domain_age = res;
 										doAjax({
 											type: 'GET',
@@ -219,7 +223,7 @@
 												doAjax({
 													type: 'GET',
 													contentType: "application/json",
-													url: endpoint + "getinstantquote?search_volume=" + search_volume + "&domain_age=" + domain_age + "&domain_rating=" + domain_rating,
+													url: endpoint + "getinstantquote?search_volume=" + search_volume + "&competition=" + competition + "&domain_age=" + domain_age + "&domain_rating=" + domain_rating + "&search_keyword=" + keyword + "&search_domain=" + domain,
 												})
 													.then(res => {
 														instant_quote = res;
@@ -233,12 +237,10 @@
 														$(".step-" + next_step).removeClass("fadeInRight animated active").addClass("fadeInRight animated active").show();
 
 														if (Number(instant_quote) < 1000) {
-															$(".step-3").addClass('bg-green');
-															$("#amt").append('<br><span> Yes, You qualify.</span></span>');
+															$("#amt").append('<br><span> $'+ instant_quote +'</span></span>');
 														}
 														else {
-															// $(".step-3").addClass('bg-red');
-															$("#amt").append('<br><span> You may need to work with an agency.</span></span>');
+															$("#amt").append('<br><span> $ '+ instant_quote +'</span></span>');
 														}
 
 
@@ -272,7 +274,8 @@
 							url: endpoint + "getsearchvolume?keyword=" + keyword,
 						})
 							.then(res => {
-								search_volume = res;
+								search_volume = res.search_volume;
+								competition = res.competition
 								doAjax({
 									type: 'GET',
 									contentType: "application/json",
@@ -291,7 +294,7 @@
 												doAjax({
 													type: 'GET',
 													contentType: "application/json",
-													url: endpoint + "getinstantquote?search_volume=" + search_volume + "&domain_age=" + domain_age + "&domain_rating=" + domain_rating,
+													url: endpoint + "getinstantquote?search_volume=" + search_volume + "&competition=" + competition + "&domain_age=" + domain_age + "&domain_rating=" + domain_rating + "&search_keyword=" + keyword + "&search_domain=" + domain,
 												})
 													.then(res => {
 														instant_quote = res;
@@ -305,13 +308,11 @@
 														$(".step-" + next_step).removeClass("fadeInRight animated active").addClass("fadeInRight animated active").show();
 
 														if (Number(instant_quote) < 1000) {
-															$("#amt").append('<br><span> Yes, You qualify.</span></span>');
+															$("#amt").append('<br><span> $'+ instant_quote +'</span></span>');
 														}
 														else {
-															$("#amt").append('<br><span> You may need to work with an agency.</span></span>');
+															$("#amt").append('<br><span> $ '+ instant_quote +'</span></span>');
 														}
-
-
 													})
 											})
 									})

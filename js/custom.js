@@ -39,7 +39,7 @@ $(document).ready(function (e) {
             if (validateUrl(input_entry)) {
               $("#btn_calculate").attr("disabled", true);
               $("#btn_calculate").html("Calculating ...");
-              var search_volume, domain_age, domain_rating, instant_quote;
+              var search_volume, domain_age, domain_rating, instant_quote, competition;
 
               const doAjax = (data) => {
                 return new Promise(function (resolve, reject) {
@@ -54,7 +54,8 @@ $(document).ready(function (e) {
                 contentType: "application/json",
                 url: endpoint + "getsearchvolume?keyword=" + keyword,
               }).then((res) => {
-                search_volume = res;
+                search_volume = res.search_volume;
+                competition = res.competition;
                 doAjax({
                   type: "GET",
                   contentType: "application/json",
@@ -71,14 +72,7 @@ $(document).ready(function (e) {
                     doAjax({
                       type: "GET",
                       contentType: "application/json",
-                      url:
-                        endpoint +
-                        "getinstantquote?search_volume=" +
-                        search_volume +
-                        "&domain_age=" +
-                        domain_age +
-                        "&domain_rating=" +
-                        domain_rating,
+                      url: endpoint + "getinstantquote?search_volume=" + search_volume + "&competition=" + competition + "&domain_age=" + domain_age + "&domain_rating=" + domain_rating + "&search_keyword=" + keyword + "&search_domain=" + domain,
                     }).then((res) => {
                       instant_quote = res;
                       console.log("instant_quote:", instant_quote);
@@ -96,17 +90,12 @@ $(document).ready(function (e) {
                         .find("input[type=text]")
                         .focus();
 
-                      if (Number(instant_quote) < 1000) {
-                        $(".step-3").addClass("bg-green");
-                        $("#amt").append(
-                          "<br><span> Yes, You qualify.</span></span>"
-                        );
-                      } else {
-                        // $(".step-3").addClass('bg-red');
-                        $("#amt").append(
-                          "<br><span> You may need to work with an agency.</span></span>"
-                        );
-                      }
+                        if (Number(instant_quote) < 1000) {
+                          $("#amt").append('<br><span> $'+ instant_quote +'</span></span>');
+                        }
+                        else {
+                          $("#amt").append('<br><span> $ '+ instant_quote +'</span></span>');
+                        }
                     });
                   });
                 });
