@@ -11,7 +11,7 @@
 	<link href="https://zeq.netlify.app/css/animate.css" rel="stylesheet" type="text/css" media="all">
 	<link href="https://zeq.netlify.app/css/style.css" rel="stylesheet" type="text/css" media="all">
 	<script type="text/javascript" src="https://zeq.netlify.app/js/jquery.js"></script>
-	<script type="text/javascript" src="https://zeq.netlify.app/js/custom.js"></script>
+	<script type="text/javascript" src="https://zeq.netlify.app/js/custom_social5.js"></script>
 	<!-- <script type="text/javascript" src="http://127.0.0.1/instaquoteseo/js/custom.js"></script> -->
 
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -236,11 +236,17 @@
 														$(this).closest(".step-" + current_step).hide();
 														$(".step-" + next_step).removeClass("fadeInRight animated active").addClass("fadeInRight animated active").show();
 
+														// if (Number(instant_quote) < 1000) {
+														// 	$("#amt").append('<br><span> $'+ instant_quote +'</span></span>');
+														// }
+														// else {
+														// 	$("#amt").append('<br><span> $ '+ instant_quote +'</span></span>');
+														// }
 														if (Number(instant_quote) < 1000) {
-															$("#amt").append('<br><span> $'+ instant_quote +'</span></span>');
+															$("#amt").append('<br><span> Yes. You are qualified.</span></span>');
 														}
 														else {
-															$("#amt").append('<br><span> $ '+ instant_quote +'</span></span>');
+															$("#amt").append('<br><span> You need to work with an agency.</span></span>');
 														}
 
 
@@ -308,10 +314,10 @@
 														$(".step-" + next_step).removeClass("fadeInRight animated active").addClass("fadeInRight animated active").show();
 
 														if (Number(instant_quote) < 1000) {
-															$("#amt").append('<br><span> $'+ instant_quote +'</span></span>');
+															$("#amt").append('<br><span> Yes. You are qualified.</span></span>');
 														}
 														else {
-															$("#amt").append('<br><span> $ '+ instant_quote +'</span></span>');
+															$("#amt").append('<br><span> You need to work with an agency.</span></span>');
 														}
 													})
 											})
